@@ -130,7 +130,7 @@ export const updateCommentService = async (
 
   comment.content = content;
   await comment.save();
-  return comment;
+  return Comment.findById(comment._id).populate('user', 'name avatar role');
 };
 
 /**

@@ -174,7 +174,7 @@ function generateFallbackResponse(messages: AIMessage[]): AIProviderResponse {
   const lastMessage = messages[messages.length - 1];
 
   const responseData = (content: string): AIProviderResponse => ({
-    content,
+    content: `${content}\n\n### Practical workflow\n1. Start with the smallest working example.\n2. Test both valid and invalid inputs.\n3. Refactor repeated logic only after the behavior is correct.\n\n### What to watch for\nCheck error handling, accessibility, performance, and how the code behaves as the project grows. Apply this concept in a small feature and compare the result with the original implementation.`,
     provider: 'fallback',
     model: 'fallback-model',
     usage: {
