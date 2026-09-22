@@ -1,0 +1,36 @@
+{
+  "name": "devnotes-server",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/server.js",
+    "seed:admin": "tsx src/scripts/seedAdmin.ts",
+    "seed:tutorials": "tsx src/scripts/seedTutorials.ts",
+    "seed:quizzes": "tsx src/scripts/seedQuizzes.ts",
+    "seed:posts": "tsx src/scripts/seedBlogPosts.ts",
+    "seed:demo-users": "tsx src/scripts/seedDemoUsers.ts"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.2",
+    "dotenv": "^16.4.1",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^8.17.0",
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cookie-parser": "^1.4.7",
+    "@types/cors": "^2.8.5",
+    "@types/express": "^5.0.1",
+    "@types/jsonwebtoken": "^9.0.7",
+    "@types/node": "^24.13.2",
+    "tsx": "^4.20.0",
+    "typescript": "^5.7.3"
+  }
+}

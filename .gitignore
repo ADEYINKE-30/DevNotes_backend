@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Environment files and secrets
+.env
+.env.*
+
+# Build output
+dist/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Test and coverage output
+coverage/
+.nyc_output/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+
