@@ -91,6 +91,12 @@ export const loginService = async (
     throw error;
   }
 
+  if (user.status === 'suspended') {
+    const error = new Error('This account is suspended');
+    (error as { statusCode?: number }).statusCode = 403;
+    throw error;
+  }
+
   // Generate JWT
   const token = generateToken({
     userId: user._id.toString(),
