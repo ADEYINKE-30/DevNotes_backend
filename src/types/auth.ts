@@ -5,6 +5,7 @@ export interface UserDocument {
   avatar?: string;
   bio?: string;
   role: 'user' | 'admin';
+  status: 'active' | 'suspended';
   createdAt: Date;
   updatedAt: Date;
 }

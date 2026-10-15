@@ -20,6 +20,7 @@ const serializeUser = (user: unknown): UserDocument => {
     avatar?: string;
     bio?: string;
     role?: 'user' | 'admin';
+    status?: 'active' | 'suspended';
     createdAt?: Date;
     updatedAt?: Date;
   };
@@ -31,6 +32,7 @@ const serializeUser = (user: unknown): UserDocument => {
     avatar: userData.avatar,
     bio: userData.bio,
     role: userData.role || 'user',
+    status: userData.status || 'active',
     createdAt: userData.createdAt || new Date(),
     updatedAt: userData.updatedAt || new Date()
   };

@@ -9,6 +9,7 @@ export interface UserModel {
   avatar?: string;
   bio?: string;
   role: 'user' | 'admin';
+  status: 'active' | 'suspended';
   notificationPreferences?: {
     tutorialNotifications: boolean;
     quizNotifications: boolean;
@@ -58,6 +59,11 @@ const UserSchema = new Schema<UserModel>(
       type: String,
       enum: ['user', 'admin'],
       default: 'user'
+    },
+    status: {
+      type: String,
+      enum: ['active', 'suspended'],
+      default: 'active'
     },
     notificationPreferences: {
       type: {
