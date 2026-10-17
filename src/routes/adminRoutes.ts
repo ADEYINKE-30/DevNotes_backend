@@ -6,6 +6,7 @@ import {
 } from '../controllers/newsletterController.js';
 import { getAIUsageStats } from '../controllers/adminAIController.js';
 import { getReports, updateReport } from '../controllers/reportController.js';
+import { getAdminUsers } from '../controllers/adminUserController.js';
 import { requireAuth, requireAdmin } from '../middleware/authMiddleware.js';
 
 const router = Router();
@@ -15,6 +16,7 @@ router.get('/newsletter/subscribers', requireAuth, requireAdmin, getSubscribers)
 router.delete('/newsletter/subscribers/:id', requireAuth, requireAdmin, deleteSubscriber);
 router.post('/notifications/announcement', requireAuth, requireAdmin, createAnnouncement);
 router.get('/ai/usage', requireAuth, requireAdmin, getAIUsageStats);
+router.get('/users', requireAuth, requireAdmin, getAdminUsers);
 
 // Admin content moderation reports
 router.get('/reports', requireAuth, requireAdmin, getReports);
