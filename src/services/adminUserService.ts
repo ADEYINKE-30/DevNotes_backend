@@ -48,6 +48,7 @@ export const getAdminUsersService = async ({
       avatar: user.avatar,
       bio: user.bio,
       role: user.role,
+      status: user.status,
       createdAt: user.createdAt,
       updatedAt: user.updatedAt
     })),

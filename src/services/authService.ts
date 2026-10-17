@@ -20,6 +20,7 @@ const serializeUser = (user: unknown): UserDocument => {
     avatar?: string;
     bio?: string;
     role?: 'user' | 'admin';
+    status?: 'active' | 'suspended';
     createdAt?: Date;
     updatedAt?: Date;
   };
@@ -31,6 +32,7 @@ const serializeUser = (user: unknown): UserDocument => {
     avatar: userData.avatar,
     bio: userData.bio,
     role: userData.role || 'user',
+    status: userData.status || 'active',
     createdAt: userData.createdAt || new Date(),
     updatedAt: userData.updatedAt || new Date()
   };
@@ -86,6 +88,12 @@ export const loginService = async (
   if (!isPasswordValid) {
     const error = new Error('Invalid email or password');
     (error as { statusCode?: number }).statusCode = 401;
+    throw error;
+  }
+
+  if (user.status === 'suspended') {
+    const error = new Error('This account is suspended');
+    (error as { statusCode?: number }).statusCode = 403;
     throw error;
   }
 
